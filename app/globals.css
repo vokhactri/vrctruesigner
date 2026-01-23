@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* CSS variables for dark theme background gradients */
+    --background-start: #000000;
+    --background-end: #000000;
+    --teal-glow-start: rgba(0, 212, 255, 0.15);
+    --teal-glow-end: rgba(0, 136, 204, 0.05);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-vrc-foreground;
+    font-family: 'Inter', 'DM Sans', sans-serif;
+    background: radial-gradient(ellipse at top, var(--teal-glow-start) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, var(--teal-glow-end) 0%, transparent 50%),
+                #000000;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities for letter-spacing */
+  .tracking-wide-headline {
+    letter-spacing: 0.05em;
+  }
+
+  /* Animated diamond connector for transaction flow */
+  .flow-diamond {
+    left: 0%;
+    animation: flowDiamond 3s linear infinite;
+  }
+}
+
+@keyframes flowDiamond {
+  0% {
+    transform: translate(0%, -50%) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, -50%) rotate(45deg);
+    opacity: 0;
+  }
+}
