@@ -26,7 +26,7 @@ The UI has been refactored to prioritize visual excellence and a minimal, determ
 As part of the integration into the Verichains ecosystem, the following tasks are required:
 
 ### 1. Integration & Database
-- **Embed**: Transition this standalone repository into the main Verichains website codebase.
+- **Embed**: Transition this standalone repository into the main Verichains website codebase. Ensure consitent header and footer.
 - **Database**: Integrate with the existing production database.
 - **Storage**: Ensure all fields (First Name, Last Name, Work Email, Organization, Telegram) are correctly mapped and stored safely.
 
