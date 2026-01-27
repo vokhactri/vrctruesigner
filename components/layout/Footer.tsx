@@ -16,22 +16,32 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="https://verichains.io/services"
+                  href="https://verichains.io/security-services/blockchain-security/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-vrc-foreground-subtle hover:text-vrc-cyan transition-colors"
                 >
-                  Security Services
+                  Blockchain Security
                 </Link>
               </li>
               <li>
                 <Link
-                  href="https://verichains.io/products"
+                  href="https://verichains.io/security-services/full-scale-penetration-testing/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-vrc-foreground-subtle hover:text-vrc-cyan transition-colors"
                 >
-                  Products
+                  Pentest
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://verichains.io/security-services/security-compliance/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-vrc-foreground-subtle hover:text-vrc-cyan transition-colors"
+                >
+                  GRC
                 </Link>
               </li>
             </ul>
@@ -53,7 +63,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://verichains.io/blog"
+                  href="https://blog.verichains.io"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-vrc-foreground-subtle hover:text-vrc-cyan transition-colors"
@@ -70,7 +80,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="https://verichains.io/contact"
+                  href="https://verichains.io/contact-us"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-vrc-foreground-subtle hover:text-vrc-cyan transition-colors"
@@ -80,7 +90,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://verichains.io/career"
+                  href="https://career.verichains.io"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-vrc-foreground-subtle hover:text-vrc-cyan transition-colors"

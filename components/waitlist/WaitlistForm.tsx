@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
@@ -25,6 +25,15 @@ export function WaitlistForm({ contentOnly = false }: WaitlistFormProps) {
     type: "success" | "error" | null;
     message: string;
   }>({ type: null, message: "" });
+  
+  useEffect(() => {
+    if (submitStatus.type) {
+      const timer = setTimeout(() => {
+        setSubmitStatus({ type: null, message: "" });
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus.type]);
 
   const {
     register,

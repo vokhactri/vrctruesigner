@@ -12,28 +12,34 @@ export async function submitWaitlist(
     // Validate data
     const validatedData = waitlistSchema.parse(data);
 
-    // TODO: Implement Google Sheets API integration
-    // For now, simulate API call
-    console.log('Submitting waitlist data:', validatedData);
+    const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSetWMhGuodBs82byM3Pptsp7DoDR4K4VFNd5B1531Hc8P4cmg/formResponse';
 
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const formData = new URLSearchParams();
+    formData.append('entry.1990205863', validatedData.firstName);
+    formData.append('entry.954253996', validatedData.lastName);
+    formData.append('entry.1127882988', validatedData.email);
+    formData.append('entry.1828409517', validatedData.organizationName);
+    formData.append('entry.598364122', validatedData.telegramHandle || '');
 
-    // Placeholder: In production, this would make an API call to Google Sheets
-    // Example:
-    // const response = await fetch('/api/waitlist', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(validatedData),
-    // });
-    // const result = await response.json();
-    // return result;
+    // Submit to Google Form
+    // Using no-cors because Google Forms doesn't return CORS headers
+    await fetch(FORM_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData.toString(),
+    });
 
+    // Since we use no-cors, we can't check the response status.
+    // If fetch doesn't throw, we assume it was sent successfully.
     return {
       success: true,
       message: 'Thank you! You have been added to the waitlist.',
     };
   } catch (error) {
+    console.error('Waitlist submission error:', error);
     if (error instanceof Error) {
       return {
         success: false,
@@ -46,3 +52,4 @@ export async function submitWaitlist(
     };
   }
 }
+

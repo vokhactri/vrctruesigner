@@ -6,29 +6,29 @@ import { z } from 'zod';
 export const waitlistSchema = z.object({
   firstName: z
     .string()
-    .min(1, 'First name is required')
+    .min(2, 'First name is required')
     .trim(),
   lastName: z
     .string()
-    .min(1, 'Last name is required')
+    .min(2, 'Last name is required')
     .trim(),
   email: z
     .string()
-    .min(1, 'Work email is required')
     .email('Please enter a valid email address')
     .trim(),
   organizationName: z
     .string()
-    .min(1, 'Organization name is required')
+    .min(2, 'Organization name is required')
     .trim(),
   telegramHandle: z
     .string()
+    .trim()
     .optional()
+    .or(z.literal(''))
     .refine(
-      (val) => !val || val.startsWith('@'),
-      'Telegram handle must start with @'
-    )
-    .transform((val) => val?.trim() || ''),
+      (val) => !val || /^@[A-Za-z0-9_]{5,32}$/.test(val),
+      'Invalid Telegram handle (e.g., @username, 5-32 characters)'
+    ),
 });
 
 export type WaitlistFormData = z.infer<typeof waitlistSchema>;
