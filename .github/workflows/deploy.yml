@@ -53,6 +53,9 @@ jobs:
         run: pnpm build
         env:
           NODE_ENV: production
+          # Extract repository name from GITHUB_REPOSITORY (format: owner/repo)
+          # and set it as the base path for GitHub Pages
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
