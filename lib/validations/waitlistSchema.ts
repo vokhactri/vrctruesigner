@@ -15,7 +15,33 @@ export const waitlistSchema = z.object({
   email: z
     .string()
     .email('Please enter a valid email address')
-    .trim(),
+    .trim()
+    .refine(
+      (email) => {
+        // List of common personal email domains to reject
+        const personalEmailDomains = [
+          'gmail.com',
+          'yahoo.com',
+          'hotmail.com',
+          'outlook.com',
+          'live.com',
+          'aol.com',
+          'icloud.com',
+          'mail.com',
+          'protonmail.com',
+          'yandex.com',
+          'zoho.com',
+          'gmx.com',
+          'inbox.com',
+          'me.com',
+          'msn.com',
+        ];
+
+        const domain = email.split('@')[1]?.toLowerCase();
+        return !personalEmailDomains.includes(domain);
+      },
+      'Please use your work email address'
+    ),
   organizationName: z
     .string()
     .min(2, 'Organization name is required')

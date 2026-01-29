@@ -140,7 +140,7 @@ export function WaitlistForm({ contentOnly = false }: WaitlistFormProps) {
           <Input
             id="email"
             type="email"
-            placeholder="example@email.com"
+            placeholder="you@work.com"
             {...register("email")}
             className="bg-white/5 border-white/10 focus:border-vrc-cyan/50 transition-colors"
           />
