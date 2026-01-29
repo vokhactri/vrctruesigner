@@ -12,7 +12,7 @@ export function Header() {
           className="inline-block transition-opacity hover:opacity-80"
         >
           <Image
-            src="/assets/logo/text.svg"
+            src="assets/logo/text.svg"
             alt="Verichains Logo"
             width={200}
             height={40}
