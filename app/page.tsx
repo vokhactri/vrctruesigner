@@ -6,7 +6,7 @@ import { OutlinedContainer } from "@/components/layout/OutlinedContainer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black flex flex-col items-center justify-center py-12 px-4 md:py-20">
+    <main className="min-h-screen bg-black flex flex-col items-center justify-center py-12 px-4 md:py-20 pt-24 md:pt-28">
       {/* Background Gradient */}
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#0A1020] via-black to-black -z-10" />
 
